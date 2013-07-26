@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(request, response) {
-  response.send(fs.readFileSync('login.html').toString());
+  response.sendfile(__dirname + '/login.html');
 });
 
 var port = process.env.PORT || 8080;
