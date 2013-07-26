@@ -1,7 +1,13 @@
-var http = require("http");
+var fs = require('fs');
+var express = require('express');
 
-http.createServer(function(request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}).listen(8888);
+var app = express.createServer(express.logger());
+
+app.get('/', function(request, response) {
+  response.send(fs.readFileSync('index.html').toString());
+});
+
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
