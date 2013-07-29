@@ -4,23 +4,33 @@
 	<title>Sign in - ****</title>
 	<meta name="viewport" content="width=device-width, initial=scale=1.0">
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src='/socket.io/socket.io.js'></script>
+	<script type="text/javascript" src='/script.js'></script>
 </head>
 <body>
 	<div class="row">
 		<div class="span10">****</div>
 		<div class="span2">
 			<h1> Sign in</h1>
-			<form method="post" enctype="text/plain">
+			<form enctype="text/plain">
 				<label>Username</label> <br>
-				<input type="text" value="" /> <br>
+				<input id = 'user_name' type="text" value="" /> <br>
 				<label>Password (<a href="www.google.com">forgot?</a>)</label> <br>
-				<input type="password" value="" /> <br>
-				<input type="submit" value="Sign in" />
-
+				<input id = 'password'type="password" value="" /> <br>
+				<button id = "sign_in" type="button">
+					Sign In
+				</button>
 			</form>
 		</div>
 	</div>
-
+	<script>
+		/*window.onload = function(){
+			var server = io.connect('http://localhost:8080');
+			server.on('connect', function(){
+				alert("A");
+			});	
+		}*/
+	</script>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
