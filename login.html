@@ -3,68 +3,27 @@
 <head>
 	<title>Sign in - ****</title>
 	<meta name="viewport" content="width=device-width, initial=scale=1.0">
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="layout.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src='/socket.io/socket.io.js'></script>
+	<script type="text/javascript" src='/script.js'></script>
 </head>
 <body>
-
-	<div class="navbar navbar-fixed-top">
-  		<div class="navbar-inner">
-    		<div class="container">
-				<!--navigation does here-->
-				<ul class="nav">
-					<li class="active">
-				    	<a class="brand" href="#">UnivMeet</a>
-					</li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">About</a></li>
-					<li><button class="btn">Sign Up</button></li>
-				</ul>
-				<form class="navbar-search pull-right">
-  					<input type="text" class="search-query" placeholder="Search">
-				</form>
-    		</div>
-  		</div>
-	</div> 
-	<div class="first_glance">
-		<div class="row" style="margin-top:100px">
-			<div class="span10">
-				<h1>Let's make friends, together</h1>
-				<p>Want to know more people from your place of study?</p>
-			</div>
-			<div class="span2">
-				<form method="post" enctype="text/plain">
-					<input type="text" placeholder="Your email" > <br>
-					<input type="password" placeholder="Password" > <br>
-					<label class="checkbox">
-    					<input type="checkbox"> Remember me
-					</label>
-					<button type="submit" class="btn">Sign in</button>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="container">
-	<h1 style="text-align: center">Why it should be interesting?</h1>
-	<p style="text-align: center">bla-bla-bla</p>
 	<div class="row">
-		<div class="span4">
-			<h1>Fact 1</h1>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+		<div class="span10">****</div>
+		<div class="span2">
+			<h1> Sign in</h1>
+			<form enctype="text/plain">
+				<label>Username</label> <br>
+				<input id = 'user_name' type="text" value="" /> <br>
+				<label>Password (<a href="www.google.com">forgot?</a>)</label> <br>
+				<input id = 'password' type="password" value="" /> <br>
+				<button id = "sign_in" type="button">
+					Sign In
+				</button>
+			</form>
 		</div>
-		<div class="span4">
-			<h1>Fact 2</h1>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-		</div>
-		<div class="span4">
-			<h1>Fact 3</h1>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-		</div>
-	</div>
 	</div>
 	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
