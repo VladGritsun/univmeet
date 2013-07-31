@@ -12,11 +12,10 @@ io.sockets.on('connection', function(socket){
 	socket.on('log_in', function(data){
 		console.log('Name: ' + data.user_name + ' Password: ' + data.password);
 	});
-	//client.emit('messages', {hello: 'world'});
 });
 
 app.get('/', function(request, response) {
-  response.sendfile(__dirname + '/login.html');
+  response.sendfile(__dirname + '/index.html');
 });
 
 //Make css, js and other files viewable by html file
