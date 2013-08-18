@@ -15,7 +15,7 @@ io.sockets.on('connection', function(socket){
 });
 
 app.get('/', function(request, response) {
-  response.sendfile(__dirname + '/index.html');
+  response.sendfile(__dirname + '/login2.html');
 });
 
 //Make css, js and other files viewable by html file
