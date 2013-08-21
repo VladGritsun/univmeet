@@ -1,4 +1,5 @@
 module.exports = function(config, mongoose, nodemailer) {
+
 	var crypto = require('crypto');
 
 	var AccountSchema = new mongoose.Schema({
@@ -47,7 +48,7 @@ module.exports = function(config, mongoose, nodemailer) {
 				smtpTransport.sendMail({
 					from: 'thisapp@example.com',
 					to: doc.email,
-					subject: 'Univmeet Password Request'
+					subject: 'Univmeet Password Request',
 					text: 'Click here to reset your password: ' + resetPasswordUrl
 				}, function forgotPasswordResult(err){
 					if(err) {
@@ -84,11 +85,12 @@ module.exports = function(config, mongoose, nodemailer) {
 		user.save(registerCallback);
 		console.log('Save command was sent');
 	}
-		return {
-			register: register,
-			forgotPassword: forgotPassword,
-			changePassword: changePassword,
-			login: login,
-			Account: Account
-		}
+
+	return {
+		register: register,
+		forgotPassword: forgotPassword,
+		changePassword: changePassword,
+		login: login,
+		Account: Account
+	}
 }

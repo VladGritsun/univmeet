@@ -6,7 +6,7 @@ var MemoryStore = require('connect').session.MemoryStore;
 //data layer
 var mongoose = require('mongoose');
 var config = {
-	mail : require('./config/mail');
+	mail : require('./config/mail')
 };
 //accounts
 var Account = require('./models/Account')(config, mongoose, nodemailer);
@@ -17,11 +17,12 @@ app.configure(function(){
   app.use(express.limit('1mb'));
   app.use(express.bodyParser());
   app.use(express.cookieParser());
-  app.use(express.session({secret : "SocialNet secret key", store: new MemoryStore()}));
+  app.use(express.session({secret : "Univmeet secret key", store: new MemoryStore()}));
   mongoose.connect('mongodb://localhost/nodebackbone');
 });
 
 app.get('/', function(req, res){
+	console.log('root');
 	res.render(__dirname + '/public/views/index.jade', {layout:false});
 });
 
@@ -48,9 +49,7 @@ app.post('/register', function(req, res) {
 	res.send(200);
 });
 
-app.post('/login', function(req, res) {.send(200);
-});
-
+app.post('/login', function(req, res) {
 	console.log('login request');
 	var email = req.param('email', null);
 	var password = req.param('password', null);
@@ -74,7 +73,7 @@ app.post('/login', function(req, res) {.send(200);
 app.post('/forgotpassword',function(req,res){
 	var hostnamne = req.headers.host;
 	var resetPasswordUrl = 'http://' + hostname + '/resetPassword';
-	var email = req.param('email',null);
+	var email = req.param('email', null);
 	if(null == email || email.length < 1){
 		res.send(400);
 		return;
@@ -85,7 +84,7 @@ app.post('/forgotpassword',function(req,res){
 			res.send(200);
 		}
 		else{
-			res/send(404);
+			res.send(404);
 		}
 	});
 });
@@ -101,7 +100,9 @@ app.post('/resetPassword', function(req,res){
 	if(null != accountId && null != password){
 		Account.changePassword(accountId, password);
 	}
-	re.render('resetPassword.jade');
+	res.render('resetPassword.jade');
 });
 
-app.listen(8080);
+app.listen(8080, function() {
+	console.log("I'm listening!");
+});
