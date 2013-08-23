@@ -3,12 +3,12 @@ require.config({
   	jQuery: '/js/libs/jquery',
   	Underscore: '/js/libs/underscore',
   	Backbone: '/js/libs/backbone',
-  	text: 'js/libs/text',
+  	text: '/js/libs/text',
   	templates: '../templates'
   },
 
   shim: {
-  	Backbone: ['Underscore', 'jQuery'],
+  	'Backbone': ['Underscore', 'jQuery'],
   	'UnivMeet' : ['Backbone']
   }
 });

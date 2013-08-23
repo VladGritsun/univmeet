@@ -10,11 +10,11 @@ define(['text!templates/login.html'], function(loginTemplate) {
 			$.post('/login', {
 				email: $('input[name=email]').val(),
 				password: $('input[name=password]').val()
-			}, funtion(data){
+			}, function(data){
 				console.log(data);
 			}).error(function(){
 				$("#error").text('Unable to login.');
-				#("#error").slideDown();
+				$("#error").slideDown();
 			});
 			return false;
 		},

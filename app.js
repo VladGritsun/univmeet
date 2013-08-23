@@ -22,8 +22,7 @@ app.configure(function(){
 });
 
 app.get('/', function(req, res){
-	console.log('root');
-	res.render(__dirname + '/public/views/index.jade', {layout:false});
+	res.render('index.jade', {layout:false});
 });
 
 app.get('/account/authenticated', function(req, res){
@@ -66,12 +65,13 @@ app.post('/login', function(req, res) {
 			return;
 		}
 		console.log('login was succesful');
+		req.session.loggedIn = true;
 		res.send(200);
 	});
 });
 
 app.post('/forgotpassword',function(req,res){
-	var hostnamne = req.headers.host;
+	var hostname = req.headers.host;
 	var resetPasswordUrl = 'http://' + hostname + '/resetPassword';
 	var email = req.param('email', null);
 	if(null == email || email.length < 1){
@@ -95,12 +95,14 @@ app.get('/resetPassword',function(req,res){
 });
 
 app.post('/resetPassword', function(req,res){
+	console.log('C');
 	var accountId = req.param('accountId', null);
 	var password = req.param('password', null);
 	if(null != accountId && null != password){
 		Account.changePassword(accountId, password);
 	}
-	res.render('resetPassword.jade');
+	console.log('B');
+	res.render('resetPasswordSuccess.jade');
 });
 
 app.listen(8080, function() {
