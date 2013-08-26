@@ -23,7 +23,7 @@ module.exports = function(config, mongoose, Status, nodemailer) {
 			year: {type: Number}
 		},
 		photoUrl: {type: String},
-		biography: {type: String}
+		biography: {type: String},
 		status: [Status],
 		activity: [Status]
 	});
