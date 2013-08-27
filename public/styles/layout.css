@@ -1,0 +1,21 @@
+.first_glance {
+	padding: 60px;
+	color: #fff;
+	margin-bottom: 30px;
+	background-color: #000;
+	background-repeat: repeat;
+	border-radius: 6px;
+}
+.first_glance h1 {
+	font-size: 40px;
+	margin-bottom: 5px;
+	line-height: 1;
+	letter-spacing: -1px;
+	color:#FF6600;
+}
+.first_glance p {
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 27px;
+}
+            
