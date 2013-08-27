@@ -41,5 +41,5 @@ define(['SocialNetView', 'text!templates/index.html',
 		}
 	});
 
-	return new indexView;
+	return indexView;
 });
