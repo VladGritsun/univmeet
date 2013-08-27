@@ -43,7 +43,7 @@ define(['views/index', 'views/register', 'views/login',
 				this.changeView(new RegisterView());
 			},
 
-			profile: function() {
+			profile: function(id) {
 				var model = new Account({id: id});
 				this.changeView(new ProfileView({model: model}));
 				model.fetch();
