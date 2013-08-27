@@ -125,6 +125,7 @@ app.get('/accounts/:id', function(req, res){
 });
 
 app.post('/forgotpassword',function(req,res){
+	console.log('Forgot pass');
 	var hostname = req.headers.host;
 	var resetPasswordUrl = 'http://' + hostname + '/resetPassword';
 	var email = req.param('email', null);

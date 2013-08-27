@@ -10,7 +10,7 @@ define(['views/index', 'views/register', 'views/login',
 				"index": "index",
 				"login": "login",
 				"register": "register",
-				"forgotpassword": "forgotpassword"
+				"forgotpassword": "forgotpassword",
 				"profile/:id" : "profile"
 			},
 
@@ -41,7 +41,7 @@ define(['views/index', 'views/register', 'views/login',
 
 			register: function() {
 				this.changeView(new RegisterView());
-			}
+			},
 
 			profile: function() {
 				var model = new Account({id: id});

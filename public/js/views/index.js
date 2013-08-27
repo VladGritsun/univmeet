@@ -1,7 +1,7 @@
 define(['SocialNetView', 'text!templates/index.html',
 	'views/status', 'models/Status'], 
 	function(SocialNetView, indexTemplate, StatusView, Status) {
-	var indexView = Backbone.View.extend({
+	var indexView = SocialNetView.extend({
 		el: $('#content'),
 
 		events: {
@@ -30,7 +30,7 @@ define(['SocialNetView', 'text!templates/index.html',
 			var statusCollection = this.collection;
 			$.post('/accounts/me/status', {
 				status: statusText
-			}, funtion(data) {
+			}, function(data) {
 				statusCollection.add(new Status({status:statusText}));
 			});
 			return false;

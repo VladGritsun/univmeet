@@ -1,7 +1,12 @@
-define(function(require){
-	var Status = Backbone.Model.extend({
-		urlRoot: '/accounts/' + this.accountId + '/status'
-	});
+define(['SocialNetView', 'text!templates/status.html'], function(SocialNetView, statusTemplate) {
+  var statusView = SocialNetView.extend({
+    tagName: 'li',
 
-	return Status;
+    render: function() {
+      $(this.el).html(_.template(statusTemplate,this.model.toJSON()));
+      return this;
+    }
+  });
+
+  return statusView;
 });

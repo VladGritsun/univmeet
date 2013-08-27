@@ -1,4 +1,4 @@
-module.exports = function(config, mongoose, Status, nodemailer) {
+module.exports = function(config, mongoose, nodemailer) {
 
 	var crypto = require('crypto');
 
@@ -38,6 +38,7 @@ module.exports = function(config, mongoose, Status, nodemailer) {
 	};
 
 	var changePassword = function(accountId, newpassword) {
+		console.log('Change password/nNew password is '+ newpassword);
 		var shaSum = crypto.createHash('sha256');
 		shaSum.update(newpassword);
 		var hashedPassword = shaSum.digest('hex');
