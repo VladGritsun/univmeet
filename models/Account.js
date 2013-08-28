@@ -70,7 +70,7 @@ module.exports = function(config, mongoose, nodemailer) {
 				});
 			}
 		});
-	}
+	};
 
 	var login = function(email, password, callback) {
 		var shaSum = crypto.createHash('sha256');
@@ -84,7 +84,7 @@ module.exports = function(config, mongoose, nodemailer) {
 		Account.findOne({_id:accountId}, function(err, doc){
 			callback(doc);
 		});
-	}
+	};
 
 	var register = function(email, password, firstName, lastName) {
 		var shaSum = crypto.createHash('sha256');
@@ -101,7 +101,33 @@ module.exports = function(config, mongoose, nodemailer) {
 		});
 		user.save(registerCallback);
 		console.log('Save command was sent');
-	}
+	};
+
+	var findByString = function(searchStr, callback) {
+		var searchRegex = new RegExp(searchStr, 'i');
+		Account.find({
+			$or: [
+			{'name.full': {$regex: searchRegex}},
+			{email: {$regex: searchRegex}}
+			]
+		}, callback);
+	};
+
+	var addContact = function(account, addcontact){
+		contact = {
+			name: addContact.name,
+			accountId: addcontact._id,
+			added: new Date(),
+			updated: new Date()
+		};
+		account.contacts.push(contact);
+
+		account.save(function(err){
+			if(err){
+				console.log('Error saving account: ' + err);
+			}
+		});
+	};
 
 	return {
 		findById: findById,
