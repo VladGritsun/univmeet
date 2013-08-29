@@ -81,7 +81,6 @@ app.get('/accounts/:id/activity', function(req, res){
 					? req.session.accountId
 					: req.params.id;
 
-	console.log(accountId);
 	models.Account.findById(accountId, function(account) {
 		res.send(account.activity);
 	});
@@ -125,12 +124,16 @@ app.get('/accounts/:id', function(req, res){
 					? req.session.accountId
 					: req.params.id;
 	models.Account.findById(accountId, function(account){
+		if(accountId == 'me'
+			|| models.Account.hasContact(account, req.session.accountId) ){
+			account.isFriend = true;
+		}
+
 		res.send(account);
 	});
 });
 
 app.post('/forgotpassword',function(req,res){
-	console.log('Forgot pass');
 	var hostname = req.headers.host;
 	var resetPasswordUrl = 'http://' + hostname + '/resetPassword';
 	var email = req.param('email', null);
@@ -216,7 +219,7 @@ app.post('/accounts/:id/contact', function(req, res){
 	res.send(200);
 });
 
-app.delete('/accounts/:id/contact', funtion(req, res){
+app.delete('/accounts/:id/contact', function(req, res){
 	var accountId = req.params.id == 'me'
 					? req.session.accountId
 					: req.params.id;

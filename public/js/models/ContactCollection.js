@@ -3,5 +3,5 @@ define(['models/Contact'], function(Contact){
 		model: Contact
 	});
 
-	return ContactCollection.;
+	return ContactCollection;
 });

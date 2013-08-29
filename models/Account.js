@@ -38,7 +38,6 @@ module.exports = function(config, mongoose, nodemailer) {
 	};
 
 	var changePassword = function(accountId, newpassword) {
-		console.log('Change password/nNew password is '+ newpassword);
 		var shaSum = crypto.createHash('sha256');
 		shaSum.update(newpassword);
 		var hashedPassword = shaSum.digest('hex');
@@ -140,11 +139,26 @@ module.exports = function(config, mongoose, nodemailer) {
 		account.save();
 	};
 
+	var hasContact = function(account, contactId) {
+		if(null == account.contacts) return false;
+
+		account.contacts.forEach(function(contact) {
+			if(contact.accountId == contactId) {
+				return true;
+			}
+		});
+		return false;
+	};
+
 	return {
 		findById: findById,
 		register: register,
+		hasContact: hasContact,
 		forgotPassword: forgotPassword,
 		changePassword: changePassword,
+		findByString: findByString,
+		addContact: addContact,
+		removeContact: removeContact,
 		login: login,
 		Account: Account
 	}
