@@ -176,7 +176,7 @@ app.get('/accounts/:id/contacts', function(req, res){
 });
 
 app.post('/contacts/find', function(req, res){
-	var searchStr = re.param('searchStr', null);
+	var searchStr = req.param('searchStr', null);
 	if(null == searchStr) {
 		res.send(400);
 		return;
