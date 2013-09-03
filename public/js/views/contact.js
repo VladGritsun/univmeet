@@ -37,23 +37,23 @@ define(['SocialNetView', 'text!templates/contact.html'],
 
 			initialize: function() {
 				//Set the addButton variable in case it has been added in the constructor
-			if( this.option.addButton) {
-				this.addButton = this.options.addButton;
-			}
+				if( this.options.addButton) {
+					this.addButton = this.options.addButton;
+				}
 
-			if(this.options.removeButton) {
-				this.removeButton = this.options.removeButton;
-			}
-		},
+				if(this.options.removeButton) {
+					this.removeButton = this.options.removeButton;
+				}
+			},
 
-		render: function(){
-			$(this.el).html(_.template(contactTemplate, {
-				model: this.model.toJSON(),
-				addButton: this.addButton,
-				removeButton: this.removeButton
-			}));
-			return this;
-		}
+			render: function(){
+				$(this.el).html(_.template(contactTemplate, {
+					model: this.model.toJSON(),
+					addButton: this.addButton,
+					removeButton: this.removeButton
+				}));
+				return this;
+			}
 	});
 
 	return contactView;

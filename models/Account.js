@@ -10,6 +10,17 @@ module.exports = function(config, mongoose, nodemailer) {
 		status: {type: String}
 	});
 
+	var Contact = new mongoose.Schema({
+		name: {
+			first: {type: String},
+			last: {type: String}
+		},
+
+		accountId: {type: mongoose.Schema.ObjectId },
+		added: {type: Date},
+		updated: {type: Date}
+	});
+
 	var AccountSchema = new mongoose.Schema({
 		email: {type: String, unique: true},
 		password: {type: String},
@@ -24,6 +35,7 @@ module.exports = function(config, mongoose, nodemailer) {
 		},
 		photoUrl: {type: String},
 		biography: {type: String},
+		contacts: [Contact],
 		status: [Status],
 		activity: [Status]
 	});
