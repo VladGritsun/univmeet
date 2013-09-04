@@ -194,20 +194,21 @@ app.post('/accounts/:id/contact', function(req, res){
 	var accountId = req.params.id == 'me'
 					? req.session.accountId
 					: req.params.id;
-
+	console.log("in add contact");
 	var contactId = req.param('contactId', null);
-
+	console.log(contactId);
 	//Missing contactId don't bother going any further
 	if(null == contactId){
 		res.send(400)
 		return;
 	}
-
+	console.log("still here");
 	models.Account.findById(accountId, function(account){
 		if(account){
+			console.log(account);
 			models.Account.findById(contactId, function(contact){
 				models.Account.addContact(account, contact);
-
+				console.log("after add to db");
 				//Make the reverse link
 				models.Account.addContact(contact, account);
 				account.save();
