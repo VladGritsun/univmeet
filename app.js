@@ -203,7 +203,7 @@ app.post('/accounts/:id/contact', function(req, res){
 		return;
 	}
 
-	models.Account.findById(contactId, function(conact){
+	models.Account.findById(accountId, function(account){
 		if(account){
 			models.Account.findById(contactId, function(contact){
 				models.Account.addContact(account, contact);
