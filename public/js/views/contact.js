@@ -16,8 +16,10 @@ define(['SocialNetView', 'text!templates/contact.html'],
 					{contactId: this.model.get('_id')},
 					function onSuccess(){
 						$responseArea.text('Contact Added');
+						console.log('Contact Added');
 					}, function onError() {
 						$responseArea.text('Could not add contact');
+						console.log('Could not add contact');
 					});
 
 			},
